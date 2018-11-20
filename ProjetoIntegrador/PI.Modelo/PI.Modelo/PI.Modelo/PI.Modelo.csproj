@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9CB84415-794B-4D3D-A6C8-26C6BA6A6BE7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>PI.Modelo</RootNamespace>
+    <AssemblyName>PI.Modelo</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="ProjetoIntegrador.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ProjetoIntegrador.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="packages.config" />
+    <None Include="ProjetoIntegrador.edmx.diagram">
+      <DependentUpon>ProjetoIntegrador.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aluno.cs">
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Anexo.cs">
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Curso.cs">
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entrega.cs">
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatriculaCurso.cs">
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Papel.cs">
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pessoa.cs">
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Projeto.cs">
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjetoAluno.cs">
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjetoIntegrador.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjetoIntegrador.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjetoIntegrador.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjetoIntegrador.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjetoIntegrador.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SituacaoProjeto.cs">
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoEntrega.cs">
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoParticipante.cs">
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario.cs">
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioPapel.cs">
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vProjetoAluno.cs">
+      <DependentUpon>ProjetoIntegrador.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ProjetoIntegrador.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ProjetoIntegrador.Context.cs</LastGenOutput>
+      <DependentUpon>ProjetoIntegrador.edmx</DependentUpon>
+    </Content>
+    <Content Include="ProjetoIntegrador.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ProjetoIntegrador.edmx</DependentUpon>
+      <LastGenOutput>ProjetoIntegrador.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

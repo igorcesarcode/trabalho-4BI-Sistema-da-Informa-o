@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjetoIntegradorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Aluno">
+    <Key>
+      <PropertyRef Name="IdAluno" />
+    </Key>
+    <Property Name="IdAluno" Type="Int32" Nullable="false" />
+    <Property Name="Matricula" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Pessoa" Relationship="Self.FK__Aluno__IdAluno__571DF1D5" FromRole="Aluno" ToRole="Pessoa" />
+    <NavigationProperty Name="MatriculaCurso" Relationship="Self.FK__Matricula__IdAlu__5AEE82B9" FromRole="Aluno" ToRole="MatriculaCurso" />
+    <NavigationProperty Name="ProjetoAluno" Relationship="Self.FK__ProjetoAl__IdAlu__5BE2A6F2" FromRole="Aluno" ToRole="ProjetoAluno" />
+  </EntityType>
+  <EntityType Name="Anexo">
+    <Key>
+      <PropertyRef Name="IdAnexo" />
+    </Key>
+    <Property Name="IdAnexo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdEntrega" Type="Int32" Nullable="false" />
+    <Property Name="NomeLogico" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CaminhoFisico" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Entrega" Relationship="Self.FK__Anexo__IdEntrega__59FA5E80" FromRole="Anexo" ToRole="Entrega" />
+  </EntityType>
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="IdCurso" />
+    </Key>
+    <Property Name="IdCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="MatriculaCurso" Relationship="Self.FK__Matricula__IdCur__52593CB8" FromRole="Curso" ToRole="MatriculaCurso" />
+  </EntityType>
+  <EntityType Name="Entrega">
+    <Key>
+      <PropertyRef Name="IdEntrega" />
+    </Key>
+    <Property Name="IdEntrega" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdProjeto" Type="Int32" Nullable="false" />
+    <Property Name="IdTipoEntrega" Type="Int32" Nullable="false" />
+    <Property Name="DataEntrega" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Anexo" Relationship="Self.FK__Anexo__IdEntrega__59FA5E80" FromRole="Entrega" ToRole="Anexo" />
+    <NavigationProperty Name="Projeto" Relationship="Self.FK__Entrega__IdProje__5165187F" FromRole="Entrega" ToRole="Projeto" />
+    <NavigationProperty Name="TipoEntrega" Relationship="Self.FK__Entrega__IdTipoE__5535A963" FromRole="Entrega" ToRole="TipoEntrega" />
+  </EntityType>
+  <EntityType Name="MatriculaCurso">
+    <Key>
+      <PropertyRef Name="IdAluno" />
+      <PropertyRef Name="IdCurso" />
+    </Key>
+    <Property Name="IdAluno" Type="Int32" Nullable="false" />
+    <Property Name="IdCurso" Type="Int32" Nullable="false" />
+    <Property Name="DataMatricula" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Aluno" Relationship="Self.FK__Matricula__IdAlu__5AEE82B9" FromRole="MatriculaCurso" ToRole="Aluno" />
+    <NavigationProperty Name="Curso" Relationship="Self.FK__Matricula__IdCur__52593CB8" FromRole="MatriculaCurso" ToRole="Curso" />
+  </EntityType>
+  <EntityType Name="Papel">
+    <Key>
+      <PropertyRef Name="IdPapel" />
+    </Key>
+    <Property Name="IdPapel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="UsuarioPapel" Relationship="Self.FK__UsuarioPa__IdPap__5441852A" FromRole="Papel" ToRole="UsuarioPapel" />
+  </EntityType>
+  <EntityType Name="Pessoa">
+    <Key>
+      <PropertyRef Name="IdPessoa" />
+    </Key>
+    <Property Name="IdPessoa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Aluno" Relationship="Self.FK__Aluno__IdAluno__571DF1D5" FromRole="Pessoa" ToRole="Aluno" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__IdPesso__5812160E" FromRole="Pessoa" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Projeto">
+    <Key>
+      <PropertyRef Name="IdProjeto" />
+    </Key>
+    <Property Name="IdProjeto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdSituacaoProjeto" Type="Int32" Nullable="false" />
+    <Property Name="Titulo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataInicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DataFim" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Entrega" Relationship="Self.FK__Entrega__IdProje__5165187F" FromRole="Projeto" ToRole="Entrega" />
+    <NavigationProperty Name="SituacaoProjeto" Relationship="Self.FK__Projeto__IdSitua__534D60F1" FromRole="Projeto" ToRole="SituacaoProjeto" />
+    <NavigationProperty Name="ProjetoAluno" Relationship="Self.FK__ProjetoAl__IdPro__5070F446" FromRole="Projeto" ToRole="ProjetoAluno" />
+  </EntityType>
+  <EntityType Name="ProjetoAluno">
+    <Key>
+      <PropertyRef Name="IdAluno" />
+      <PropertyRef Name="IdProjeto" />
+    </Key>
+    <Property Name="IdAluno" Type="Int32" Nullable="false" />
+    <Property Name="IdProjeto" Type="Int32" Nullable="false" />
+    <Property Name="IdTipoParticipante" Type="Int32" Nullable="false" />
+    <Property Name="DataRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Aluno" Relationship="Self.FK__ProjetoAl__IdAlu__5BE2A6F2" FromRole="ProjetoAluno" ToRole="Aluno" />
+    <NavigationProperty Name="Projeto" Relationship="Self.FK__ProjetoAl__IdPro__5070F446" FromRole="ProjetoAluno" ToRole="Projeto" />
+    <NavigationProperty Name="TipoParticipante" Relationship="Self.FK__ProjetoAl__IdTip__5629CD9C" FromRole="ProjetoAluno" ToRole="TipoParticipante" />
+  </EntityType>
+  <EntityType Name="SituacaoProjeto">
+    <Key>
+      <PropertyRef Name="IdSituacaoProjeto" />
+    </Key>
+    <Property Name="IdSituacaoProjeto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Projeto" Relationship="Self.FK__Projeto__IdSitua__534D60F1" FromRole="SituacaoProjeto" ToRole="Projeto" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TipoEntrega">
+    <Key>
+      <PropertyRef Name="IdTipoEntrega" />
+    </Key>
+    <Property Name="IdTipoEntrega" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Entrega" Relationship="Self.FK__Entrega__IdTipoE__5535A963" FromRole="TipoEntrega" ToRole="Entrega" />
+  </EntityType>
+  <EntityType Name="TipoParticipante">
+    <Key>
+      <PropertyRef Name="IdTipoParticipante" />
+    </Key>
+    <Property Name="IdTipoParticipante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ProjetoAluno" Relationship="Self.FK__ProjetoAl__IdTip__5629CD9C" FromRole="TipoParticipante" ToRole="ProjetoAluno" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdPessoa" Type="Int32" Nullable="false" />
+    <Property Name="Usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Senha" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Pessoa" Relationship="Self.FK__Usuario__IdPesso__5812160E" FromRole="Usuario" ToRole="Pessoa" />
+    <NavigationProperty Name="UsuarioPapel" Relationship="Self.FK__UsuarioPa__IdUsu__59063A47" FromRole="Usuario" ToRole="UsuarioPapel" />
+  </EntityType>
+  <EntityType Name="UsuarioPapel">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+      <PropertyRef Name="IdPapel" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <Property Name="IdPapel" Type="Int32" Nullable="false" />
+    <Property Name="DataInicioVigencia" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DataFimVigencia" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Papel" Relationship="Self.FK__UsuarioPa__IdPap__5441852A" FromRole="UsuarioPapel" ToRole="Papel" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__UsuarioPa__IdUsu__59063A47" FromRole="UsuarioPapel" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="FK__Aluno__IdAluno__571DF1D5">
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+    <End Role="Aluno" Type="Self.Aluno" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="Aluno">
+        <PropertyRef Name="IdAluno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Matricula__IdAlu__5AEE82B9">
+    <End Role="Aluno" Type="Self.Aluno" Multiplicity="1" />
+    <End Role="MatriculaCurso" Type="Self.MatriculaCurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aluno">
+        <PropertyRef Name="IdAluno" />
+      </Principal>
+      <Dependent Role="MatriculaCurso">
+        <PropertyRef Name="IdAluno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProjetoAl__IdAlu__5BE2A6F2">
+    <End Role="Aluno" Type="Self.Aluno" Multiplicity="1" />
+    <End Role="ProjetoAluno" Type="Self.ProjetoAluno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aluno">
+        <PropertyRef Name="IdAluno" />
+      </Principal>
+      <Dependent Role="ProjetoAluno">
+        <PropertyRef Name="IdAluno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Anexo__IdEntrega__59FA5E80">
+    <End Role="Entrega" Type="Self.Entrega" Multiplicity="1" />
+    <End Role="Anexo" Type="Self.Anexo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entrega">
+        <PropertyRef Name="IdEntrega" />
+      </Principal>
+      <Dependent Role="Anexo">
+        <PropertyRef Name="IdEntrega" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Matricula__IdCur__52593CB8">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="MatriculaCurso" Type="Self.MatriculaCurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="IdCurso" />
+      </Principal>
+      <Dependent Role="MatriculaCurso">
+        <PropertyRef Name="IdCurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Entrega__IdProje__5165187F">
+    <End Role="Projeto" Type="Self.Projeto" Multiplicity="1" />
+    <End Role="Entrega" Type="Self.Entrega" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projeto">
+        <PropertyRef Name="IdProjeto" />
+      </Principal>
+      <Dependent Role="Entrega">
+        <PropertyRef Name="IdProjeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Entrega__IdTipoE__5535A963">
+    <End Role="TipoEntrega" Type="Self.TipoEntrega" Multiplicity="1" />
+    <End Role="Entrega" Type="Self.Entrega" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEntrega">
+        <PropertyRef Name="IdTipoEntrega" />
+      </Principal>
+      <Dependent Role="Entrega">
+        <PropertyRef Name="IdTipoEntrega" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UsuarioPa__IdPap__5441852A">
+    <End Role="Papel" Type="Self.Papel" Multiplicity="1" />
+    <End Role="UsuarioPapel" Type="Self.UsuarioPapel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Papel">
+        <PropertyRef Name="IdPapel" />
+      </Principal>
+      <Dependent Role="UsuarioPapel">
+        <PropertyRef Name="IdPapel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__IdPesso__5812160E">
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="IdPessoa" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Projeto__IdSitua__534D60F1">
+    <End Role="SituacaoProjeto" Type="Self.SituacaoProjeto" Multiplicity="1" />
+    <End Role="Projeto" Type="Self.Projeto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SituacaoProjeto">
+        <PropertyRef Name="IdSituacaoProjeto" />
+      </Principal>
+      <Dependent Role="Projeto">
+        <PropertyRef Name="IdSituacaoProjeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProjetoAl__IdPro__5070F446">
+    <End Role="Projeto" Type="Self.Projeto" Multiplicity="1" />
+    <End Role="ProjetoAluno" Type="Self.ProjetoAluno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projeto">
+        <PropertyRef Name="IdProjeto" />
+      </Principal>
+      <Dependent Role="ProjetoAluno">
+        <PropertyRef Name="IdProjeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProjetoAl__IdTip__5629CD9C">
+    <End Role="TipoParticipante" Type="Self.TipoParticipante" Multiplicity="1" />
+    <End Role="ProjetoAluno" Type="Self.ProjetoAluno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoParticipante">
+        <PropertyRef Name="IdTipoParticipante" />
+      </Principal>
+      <Dependent Role="ProjetoAluno">
+        <PropertyRef Name="IdTipoParticipante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UsuarioPa__IdUsu__59063A47">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="UsuarioPapel" Type="Self.UsuarioPapel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="UsuarioPapel">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProjetoIntegradorEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Aluno" EntityType="Self.Aluno" />
+    <EntitySet Name="Anexo" EntityType="Self.Anexo" />
+    <EntitySet Name="Curso" EntityType="Self.Curso" />
+    <EntitySet Name="Entrega" EntityType="Self.Entrega" />
+    <EntitySet Name="MatriculaCurso" EntityType="Self.MatriculaCurso" />
+    <EntitySet Name="Papel" EntityType="Self.Papel" />
+    <EntitySet Name="Pessoa" EntityType="Self.Pessoa" />
+    <EntitySet Name="Projeto" EntityType="Self.Projeto" />
+    <EntitySet Name="ProjetoAluno" EntityType="Self.ProjetoAluno" />
+    <EntitySet Name="SituacaoProjeto" EntityType="Self.SituacaoProjeto" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TipoEntrega" EntityType="Self.TipoEntrega" />
+    <EntitySet Name="TipoParticipante" EntityType="Self.TipoParticipante" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <EntitySet Name="UsuarioPapel" EntityType="Self.UsuarioPapel" />
+    <AssociationSet Name="FK__Aluno__IdAluno__571DF1D5" Association="Self.FK__Aluno__IdAluno__571DF1D5">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Aluno" EntitySet="Aluno" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Matricula__IdAlu__5AEE82B9" Association="Self.FK__Matricula__IdAlu__5AEE82B9">
+      <End Role="Aluno" EntitySet="Aluno" />
+      <End Role="MatriculaCurso" EntitySet="MatriculaCurso" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProjetoAl__IdAlu__5BE2A6F2" Association="Self.FK__ProjetoAl__IdAlu__5BE2A6F2">
+      <End Role="Aluno" EntitySet="Aluno" />
+      <End Role="ProjetoAluno" EntitySet="ProjetoAluno" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Anexo__IdEntrega__59FA5E80" Association="Self.FK__Anexo__IdEntrega__59FA5E80">
+      <End Role="Entrega" EntitySet="Entrega" />
+      <End Role="Anexo" EntitySet="Anexo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Matricula__IdCur__52593CB8" Association="Self.FK__Matricula__IdCur__52593CB8">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="MatriculaCurso" EntitySet="MatriculaCurso" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Entrega__IdProje__5165187F" Association="Self.FK__Entrega__IdProje__5165187F">
+      <End Role="Projeto" EntitySet="Projeto" />
+      <End Role="Entrega" EntitySet="Entrega" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Entrega__IdTipoE__5535A963" Association="Self.FK__Entrega__IdTipoE__5535A963">
+      <End Role="TipoEntrega" EntitySet="TipoEntrega" />
+      <End Role="Entrega" EntitySet="Entrega" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UsuarioPa__IdPap__5441852A" Association="Self.FK__UsuarioPa__IdPap__5441852A">
+      <End Role="Papel" EntitySet="Papel" />
+      <End Role="UsuarioPapel" EntitySet="UsuarioPapel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__IdPesso__5812160E" Association="Self.FK__Usuario__IdPesso__5812160E">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Projeto__IdSitua__534D60F1" Association="Self.FK__Projeto__IdSitua__534D60F1">
+      <End Role="SituacaoProjeto" EntitySet="SituacaoProjeto" />
+      <End Role="Projeto" EntitySet="Projeto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProjetoAl__IdPro__5070F446" Association="Self.FK__ProjetoAl__IdPro__5070F446">
+      <End Role="Projeto" EntitySet="Projeto" />
+      <End Role="ProjetoAluno" EntitySet="ProjetoAluno" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProjetoAl__IdTip__5629CD9C" Association="Self.FK__ProjetoAl__IdTip__5629CD9C">
+      <End Role="TipoParticipante" EntitySet="TipoParticipante" />
+      <End Role="ProjetoAluno" EntitySet="ProjetoAluno" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UsuarioPa__IdUsu__59063A47" Association="Self.FK__UsuarioPa__IdUsu__59063A47">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="UsuarioPapel" EntitySet="UsuarioPapel" />
+    </AssociationSet>
+    <EntitySet Name="vProjetoAluno" EntityType="ProjetoIntegradorModel.vProjetoAluno" />
+  </EntityContainer>
+  <EntityType Name="vProjetoAluno">
+    <Key>
+      <PropertyRef Name="IdAluno" />
+      <PropertyRef Name="IdProjeto" />
+      <PropertyRef Name="IdTipoParticipante" />
+      <PropertyRef Name="DataRegistro" />
+      <PropertyRef Name="NomeAluno" />
+      <PropertyRef Name="TipoParticipante" />
+    </Key>
+    <Property Name="IdAluno" Type="Int32" Nullable="false" />
+    <Property Name="IdProjeto" Type="Int32" Nullable="false" />
+    <Property Name="IdTipoParticipante" Type="Int32" Nullable="false" />
+    <Property Name="DataRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NomeAluno" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TipoParticipante" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

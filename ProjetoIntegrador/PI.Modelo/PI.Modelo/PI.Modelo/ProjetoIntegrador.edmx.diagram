@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8f9274a5cd364fcdb91e95132de3e346" Name="Diagram1">
+        <EntityTypeShape EntityType="ProjetoIntegradorModel.Aluno" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetoIntegradorModel.Anexo" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetoIntegradorModel.Curso" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetoIntegradorModel.Entrega" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetoIntegradorModel.MatriculaCurso" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetoIntegradorModel.Papel" Width="1.5" PointX="3" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetoIntegradorModel.Pessoa" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetoIntegradorModel.Projeto" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetoIntegradorModel.ProjetoAluno" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetoIntegradorModel.SituacaoProjeto" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetoIntegradorModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetoIntegradorModel.TipoEntrega" Width="1.5" PointX="3" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetoIntegradorModel.TipoParticipante" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetoIntegradorModel.Usuario" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetoIntegradorModel.UsuarioPapel" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="ProjetoIntegradorModel.FK__Aluno__IdAluno__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetoIntegradorModel.FK__Matricula__IdAlu__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetoIntegradorModel.FK__ProjetoAl__IdAlu__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetoIntegradorModel.FK__Anexo__IdEntrega__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetoIntegradorModel.FK__Matricula__IdCur__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetoIntegradorModel.FK__Entrega__IdProje__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetoIntegradorModel.FK__Entrega__IdTipoE__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetoIntegradorModel.FK__UsuarioPa__IdPap__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetoIntegradorModel.FK__Usuario__IdPesso__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetoIntegradorModel.FK__Projeto__IdSitua__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetoIntegradorModel.FK__ProjetoAl__IdPro__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetoIntegradorModel.FK__ProjetoAl__IdTip__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetoIntegradorModel.FK__UsuarioPa__IdUsu__59063A47" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ProjetoIntegradorModel.vProjetoAluno" Width="1.5" PointX="7.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

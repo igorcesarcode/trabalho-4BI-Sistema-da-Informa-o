@@ -1,0 +1,1 @@
+metadata=res://*/ProjetoIntegrador.csdl|res://*/ProjetoIntegrador.ssdl|res://*/ProjetoIntegrador.msl;provider=System.Data.SqlClient;provider connection string="data source=DESKTOP-E1B5BTT\SQLEXPRESS;initial catalog=ProjetoIntegrador;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"

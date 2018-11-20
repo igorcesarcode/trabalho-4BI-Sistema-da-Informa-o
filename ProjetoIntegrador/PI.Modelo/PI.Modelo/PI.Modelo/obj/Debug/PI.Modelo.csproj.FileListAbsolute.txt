@@ -1,0 +1,12 @@
+C:\Users\Igor\Documents\PROJETO GABRIEL\Trabalho4BI\ProjetoIntegrador\PI.Modelo\PI.Modelo\PI.Modelo\obj\Debug\PI.Modelo.csprojAssemblyReference.cache
+C:\Users\Igor\Documents\PROJETO GABRIEL\Trabalho4BI\ProjetoIntegrador\PI.Modelo\PI.Modelo\PI.Modelo\obj\Debug\PI.Modelo.csproj.CoreCompileInputs.cache
+C:\Users\Igor\Documents\PROJETO GABRIEL\Trabalho4BI\ProjetoIntegrador\PI.Modelo\PI.Modelo\PI.Modelo\bin\Debug\PI.Modelo.exe.config
+C:\Users\Igor\Documents\PROJETO GABRIEL\Trabalho4BI\ProjetoIntegrador\PI.Modelo\PI.Modelo\PI.Modelo\bin\Debug\PI.Modelo.exe
+C:\Users\Igor\Documents\PROJETO GABRIEL\Trabalho4BI\ProjetoIntegrador\PI.Modelo\PI.Modelo\PI.Modelo\bin\Debug\PI.Modelo.pdb
+C:\Users\Igor\Documents\PROJETO GABRIEL\Trabalho4BI\ProjetoIntegrador\PI.Modelo\PI.Modelo\PI.Modelo\bin\Debug\EntityFramework.dll
+C:\Users\Igor\Documents\PROJETO GABRIEL\Trabalho4BI\ProjetoIntegrador\PI.Modelo\PI.Modelo\PI.Modelo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Igor\Documents\PROJETO GABRIEL\Trabalho4BI\ProjetoIntegrador\PI.Modelo\PI.Modelo\PI.Modelo\bin\Debug\EntityFramework.xml
+C:\Users\Igor\Documents\PROJETO GABRIEL\Trabalho4BI\ProjetoIntegrador\PI.Modelo\PI.Modelo\PI.Modelo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Igor\Documents\PROJETO GABRIEL\Trabalho4BI\ProjetoIntegrador\PI.Modelo\PI.Modelo\PI.Modelo\obj\Debug\PI.Modelo.csproj.CopyComplete
+C:\Users\Igor\Documents\PROJETO GABRIEL\Trabalho4BI\ProjetoIntegrador\PI.Modelo\PI.Modelo\PI.Modelo\obj\Debug\PI.Modelo.exe
+C:\Users\Igor\Documents\PROJETO GABRIEL\Trabalho4BI\ProjetoIntegrador\PI.Modelo\PI.Modelo\PI.Modelo\obj\Debug\PI.Modelo.pdb

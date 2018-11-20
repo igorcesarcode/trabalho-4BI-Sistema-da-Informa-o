@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PI.Interface", "PI.Interface", "{ED60CF44-8836-4A9F-947E-FA385685CBFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ASP.NET MVC", "ASP.NET MVC", "{A5D59155-8C1E-4B28-89D8-850E917BA742}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WindownsForms", "WindownsForms", "{FD02F708-B598-47C9-900F-948A8A191D66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PI.Modelo", "PI.Modelo", "{B945BE3C-7282-4952-80DD-15A0D11A45D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PI.Modelo", "PI.Modelo\PI.Modelo\PI.Modelo\PI.Modelo.csproj", "{9CB84415-794B-4D3D-A6C8-26C6BA6A6BE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PI.WindownsFoms", "PI.Interface\WindownsForms\PI.WindownsFoms\PI.WindownsFoms.csproj", "{2F9459D6-E944-48CD-BF83-DC436B66308E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CB84415-794B-4D3D-A6C8-26C6BA6A6BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CB84415-794B-4D3D-A6C8-26C6BA6A6BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CB84415-794B-4D3D-A6C8-26C6BA6A6BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CB84415-794B-4D3D-A6C8-26C6BA6A6BE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F9459D6-E944-48CD-BF83-DC436B66308E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F9459D6-E944-48CD-BF83-DC436B66308E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F9459D6-E944-48CD-BF83-DC436B66308E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F9459D6-E944-48CD-BF83-DC436B66308E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A5D59155-8C1E-4B28-89D8-850E917BA742} = {ED60CF44-8836-4A9F-947E-FA385685CBFB}
+		{FD02F708-B598-47C9-900F-948A8A191D66} = {ED60CF44-8836-4A9F-947E-FA385685CBFB}
+		{9CB84415-794B-4D3D-A6C8-26C6BA6A6BE7} = {B945BE3C-7282-4952-80DD-15A0D11A45D1}
+		{2F9459D6-E944-48CD-BF83-DC436B66308E} = {FD02F708-B598-47C9-900F-948A8A191D66}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF2E94C3-D4DC-4D5A-BDE3-EA5C6A748E4F}
+	EndGlobalSection
+EndGlobal
